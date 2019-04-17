@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Special preact template</title>
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="always">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;subset=cyrillic-ext">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div id="special"></div>
+    </div>
+
+    <script>
+      (function(d, ver) {
+        var s = d.createElement('script');
+        s.src = './all.js?' + ver;
+        s.async = true;
+        var container = d.getElementById('special');
+        if (container) {
+          s.onload = function() {
+            new Special.Special({
+              // css: './all.css?' + ver,
+              container: container,
+              isFeed: document.querySelector('[air-module="module.feed"], [air-module="module.page_search"]') ? true : false,
+              share: {
+                url: '',
+                title: '',
+              }
+            });
+          };
+        }
+        d.body.appendChild(s);
+      })(document, 0);
+    </script>
+
+</body>
+
+</html>
